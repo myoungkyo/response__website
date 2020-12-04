@@ -33,6 +33,7 @@
   z-index: 800;
   border-radius: 100%;
   box-shadow: 2px 2px 2px rgba(0,0,0,.2);
+  display: none;
 }
 
 .back_to_top a{
@@ -172,10 +173,12 @@ section > article{
 
 section > article > h2{
   font-size: 40px;
+  color: white;
 }
 
 section > article > p{
   font-size: 20px;
+  color: white;
 }
 
 section#myprofile{
@@ -350,6 +353,18 @@ section .row > h2::after{
   background: #abeb17;
 }
 
+section .row{
+  opacity: 0;
+  transform: translateY(1000px); /*작동해주면 transition 꼭 걸어주기*/
+  transition: 1s;
+}
+
+/* active interaction */
+section.active .row{
+  opacity: 1;
+  transform: translateY(0px);
+}
+
 /*animation*/
 section.active .row .column .inner.progressbar .items_wrap:nth-of-type(1) .items{
   width: 50%;
@@ -370,6 +385,16 @@ section.active .row .column .inner.progressbar .items_wrap:nth-of-type(4) .items
   width: 80%;
   transition: 1s .75s;
 }
+
+/* myprofile */
+section#myprofile.active .row .column .inner img:hover{
+  transform: scale(1.2);
+}
+
+/* section#myprofile.active .row .column .inner img:hover h3,section#myprofile.active .row .column .inner img:hover p,section#myprofile.active .row .column .inner img:hover.job{
+  transform: translateY(30px);
+  transition: 1s;
+} */
 
 /*section row column style */
 section .row .column{
@@ -492,7 +517,7 @@ section .row .column .inner img{
   cursor: pointer;
 }
 
-/*반응형 css*/
+/*------------반응형 css---------------------------------------------------------------------------------------------------------------------------*/
 @media screen and ( max-width: 1200px ) {
   section .row .column{
     flex: 50%;
